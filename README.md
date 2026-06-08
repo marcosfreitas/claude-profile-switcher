@@ -31,5 +31,4 @@ If you prefer to install manually, you can copy the files to `~/.local/share/cla
 - `cc-profile clone <source> <target>`: Create a new profile by copying settings and skills from an existing one (e.g., `cc-profile clone default work`).
 
 ## License
-This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**. 
-Credits to **Marcos Freitas**.
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
