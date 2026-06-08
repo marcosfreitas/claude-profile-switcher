@@ -19,7 +19,11 @@ get_claude_config_dir() {
             local profile_name
             profile_name=$(cat "$current_dir/$profile_file" | tr -d '[:space:]')
             if [[ -n "$profile_name" ]]; then
-                echo "$HOME/.claude-$profile_name"
+                if [[ "$profile_name" == "default" ]]; then
+                    echo "$HOME/.claude"
+                else
+                    echo "$HOME/.claude-$profile_name"
+                fi
                 return
             fi
         fi
