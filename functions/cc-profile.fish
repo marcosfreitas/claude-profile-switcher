@@ -80,14 +80,18 @@ function cc-profile --description 'Manage Claude Code profiles'
 
         case "*"
             # Filter for actual configuration directories only
-            set -l profiles (for d in $HOME/.claude*/; 
-                # Skip the local pin file and non-directories
+            set -l profiles (for d in $HOME/.claude*/
                 if test -d "$d" -a (basename "$d") != ".claude-profile"
-                    echo "$d" | sed "s|$HOME/.claude-||" | sed "s|$HOME/.claude/|default|" | sed "s|/||"
+                    set -l name (string replace -r "^$HOME/\.claude-?" "" "$d" | string replace -r "/\$" "" )
+                    if test -z "$name"
+                        echo "default"
+                    else
+                        echo "$name"
+                    end
                 end
             end | sort -u)
 
-            set -l selected (echo "$profiles" | fzf --prompt="Select Claude Profile > " \
+            set -l selected (string join \n $profiles | fzf --prompt="Select Claude Profile > " \
                 --height=15% --reverse --border --header="Current: $CLAUDE_CONTEXT_OVERRIDE")
             
             if test -n "$selected"
