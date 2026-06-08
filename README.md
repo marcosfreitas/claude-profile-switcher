@@ -1,6 +1,6 @@
-# Claude Context Manager
+# Claude Profile Switcher
 
-A terminal-agnostic context switcher for Claude Code.
+A terminal-agnostic profile switcher for Claude Code.
 
 ## Features
 - **Project-based Switching**: Automatically switch Claude accounts based on the `.claude-profile` file in your project.
@@ -11,16 +11,16 @@ A terminal-agnostic context switcher for Claude Code.
 ## Installation
 
 ### Fish
-1. Clone this repository to a location of your choice (e.g., `~/Projects/claude-context`).
+1. Clone this repository to a location of your choice (e.g., `~/Projects/claude-profile-switcher`).
 2. Copy the functions to your fish config:
    ```bash
    cp functions/*.fish ~/.config/fish/functions/
    ```
 3. Ensure the core script is executable:
    ```bash
-   chmod +x bin/claude-context-core.sh
+   chmod +x bin/claude-profile-switcher-core.sh
    ```
-4. (Optional) Add the `bin` directory to your `$PATH` or update the path in `functions/claude.fish` to point to the absolute location of `claude-context-core.sh`.
+4. (Optional) Add the `bin` directory to your `$PATH` or update the path in `functions/claude.fish` to point to the absolute location of `claude-profile-switcher-core.sh`.
 
 ## Usage
 - `cc-profile`: Interactive picker to switch profiles.

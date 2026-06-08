@@ -1,7 +1,7 @@
 function claude --description 'Context-aware Claude Code wrapper'
     # Use a relative path or an environment variable to locate the core script
     # For a standard installation, we expect it to be in the path or a known relative location
-    set -l core_script (status dirname)/../bin/claude-context-core.sh
+    set -l core_script (status dirname)/../bin/claude-profile-switcher-core.sh
     
     if test -f "$core_script"
         set -l config_dir (bash "$core_script")
