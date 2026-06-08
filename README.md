@@ -10,17 +10,19 @@ A terminal-agnostic profile switcher for Claude Code.
 
 ## Installation
 
-### Fish
-1. Clone this repository to a location of your choice (e.g., `~/Projects/claude-profile-switcher`).
-2. Copy the functions to your fish config:
+### Automatic (Linux/macOS)
+1. Clone this repository:
    ```bash
-   cp functions/*.fish ~/.config/fish/functions/
+   git clone https://github.com/marcosfreitas/claude-profile-switcher.git
+   cd claude-profile-switcher
    ```
-3. Ensure the core script is executable:
+2. Run the installer:
    ```bash
-   chmod +x bin/claude-profile-switcher-core.sh
+   ./install.sh
    ```
-4. (Optional) Add the `bin` directory to your `$PATH` or update the path in `functions/claude.fish` to point to the absolute location of `claude-profile-switcher-core.sh`.
+
+### Manual
+If you prefer to install manually, you can copy the files to `~/.local/share/claude-profile-switcher` and link the functions to your shell configuration directory.
 
 ## Usage
 - `cc-profile`: Interactive picker to switch profiles.
