@@ -55,7 +55,7 @@ function cc-profile --description 'Manage Claude Code profiles'
                         cp -r "$src_dir/$item" "$target_dir/"
                         echo "  [✓] Copied $item"
                     end
-                done
+                end
                 
                 echo "Profile '$target_name' created. Credentials and history were NOT copied."
                 echo "Run 'CLAUDE_CONFIG_DIR=$target_dir claude auth login' to authenticate."
