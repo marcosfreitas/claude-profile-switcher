@@ -79,9 +79,16 @@ function cc-profile --description 'Manage Claude Code profiles'
             echo "Run 'CLAUDE_CONFIG_DIR=$target_dir claude auth login' to authenticate."
 
         case "*"
-            # Default to fzf selector if no args
-            set -l profiles (ls -d $HOME/.claude* | grep -v "\.json\$" | sed "s|$HOME/.claude-||" | sed "s|$HOME/.claude|default|")
-            set -l selected (echo "$profiles" | fzf --prompt="Select Claude Profile > " --height=10%)
+            # Filter for actual configuration directories only
+            set -l profiles (for d in $HOME/.claude*/; 
+                # Skip the local pin file and non-directories
+                if test -d "$d" -a (basename "$d") != ".claude-profile"
+                    echo "$d" | sed "s|$HOME/.claude-||" | sed "s|$HOME/.claude/|default|" | sed "s|/||"
+                end
+            end | sort -u)
+
+            set -l selected (echo "$profiles" | fzf --prompt="Select Claude Profile > " \
+                --height=15% --reverse --border --header="Current: $CLAUDE_CONTEXT_OVERRIDE")
             
             if test -n "$selected"
                 if test "$selected" = "default"
